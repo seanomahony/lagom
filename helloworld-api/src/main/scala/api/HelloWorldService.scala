@@ -17,7 +17,10 @@ trait HelloWorldService extends Service {
 
   def descriptor: Descriptor = {
     named("helloservice").withCalls(
-      restCall(Method.GET, "/api/hello/:id", hello _)).withAutoAcl(true)
+      restCall(Method.GET, "/compliance/", compliance _),
+      restCall(Method.GET, "/compliance/:id", hello _)
+    ).withAutoAcl(true);
+
   }
 }
 
